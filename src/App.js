@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import { Input, Button } from "@mui/material";
+import axios from 'axios';
+
 
 function App() {
+
+  const [items, setItems] = useState([]);
+
+  const getVal=()=>{
+    const val = document.getElementById('search-input').value;
+    axios.get(`https://api.mercadolibre.com/sites/MCO/search?&q=`+val)
+      .then(res => {
+        setItems(res.data.results);
+      });
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Alejandro Cristancho</h1>
+      <Input type="text" placeholder="Enter text" id="search-input"/>
+      <Button onClick={getVal}>Search</Button>   
     </div>
   );
 }
