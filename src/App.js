@@ -1,28 +1,18 @@
+import React from 'react'
 import './App.css';
-import React, { useState } from 'react';
-import { Input, Button } from "@mui/material";
-import axios from 'axios';
+import Search from './components/Search';
 
-
-function App() {
-
-  const [items, setItems] = useState([]);
-
-  const getVal=()=>{
-    const val = document.getElementById('search-input').value;
-    axios.get(`https://api.mercadolibre.com/sites/MCO/search?&q=`+val)
-      .then(res => {
-        setItems(res.data.results);
-      });
-  }
-
-  return (
-    <div className="App">
-      <h1>Alejandro Cristancho</h1>
-      <Input type="text" placeholder="Enter text" id="search-input"/>
-      <Button onClick={getVal}>Search</Button>   
-    </div>
-  );
+class App extends React.Component{
+  
+    render(){
+        return(
+            <div>
+                <h1>Alejandro Cristancho</h1>
+                <Search />
+            </div>
+        );
+    }
 }
 
 export default App;
+
