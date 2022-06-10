@@ -18,15 +18,16 @@ export default function Items({query}) {
   },[query]);
 
   useEffect(()=>{
-    setItemSelected(true); //bool which indicate when a item was clicked 
     console.log(itemSelected)
   },[item]);
 
 
   const getInfo = () =>{
     if(itemSelected){
-      return(<Item itemToCreate={item}/>);
+      console.log("hola1")
+      return(<Item itemToCreate={item} onReturn={()=>{setItemSelected(false);setItem([]);}} />);
     }
+    console.log("hola2")
     return(
       <>
         <h1>Resultados</h1>
@@ -44,6 +45,7 @@ export default function Items({query}) {
         <p>{item2.price}</p>
         <Button onClick={(e)=> {
                   setItem(item2);
+                  setItemSelected(true); //bool which indicate when a item was clicked 
                 }}>Show</Button>
         </div>
     );
@@ -53,7 +55,7 @@ export default function Items({query}) {
   return (
     <div>
       {
-        componentItems;
+        getInfo()
       }
     </div>
   )
