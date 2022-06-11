@@ -1,0 +1,17 @@
+
+.heading{
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 4rem;
+}
+
+.search-label{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    font-size: 3rem;
+}
+
+
+
+

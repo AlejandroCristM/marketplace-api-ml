@@ -2,7 +2,7 @@ import React, {useState,useContext} from 'react'
 import { Input, IconButton} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search'
 import Items from './Items';
-
+import '../styles/Search.css';
 
 function Search (){
 
@@ -22,13 +22,24 @@ function Search (){
         <div className="container">
             {/* Heading */}
             <h2 className="heading">Busqueda de productos</h2>
-            <label className='search-label' htmlFor='search-input'>
-                <Input type="text" placeholder="Buscar..." value={value} onChange={handleChange}/>
-                <IconButton onClick={handleOnClick}>
-                    <SearchIcon/>    
-                </IconButton>
-                <Items query={currentValue}/>
-            </label>
+            <div className='search-container'>
+                <label className='search-label' htmlFor='search-input'>
+                    <Input 
+                        className="search-input"
+                        type="text"
+                        placeholder="Buscar..."
+                        value={value}
+                        onChange={handleChange}
+                        sx={{ width:'40%', fontSize:'1.8rem'}}
+
+
+                    />
+                    <IconButton className="search-button" onClick={handleOnClick}>
+                        <SearchIcon/>    
+                    </IconButton>
+                </label>
+            </div>
+            <Items query={currentValue}/>
         </div>
       );    
 

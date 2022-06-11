@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.author {
+    width: 100%;
+    margin: 2rem 0;
+    text-align: center;
+    font-size:2.5rem;
+}

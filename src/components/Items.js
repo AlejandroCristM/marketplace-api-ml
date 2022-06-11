@@ -2,6 +2,8 @@ import axios from "axios";
 import React, {useEffect, useState} from "react";
 import {Button} from "@mui/material";
 import Item from "./Item";
+import '../styles/Items.css';
+
 
 export default function Items({query}) {
   
@@ -30,12 +32,13 @@ export default function Items({query}) {
     console.log("hola2")
     return(
       <>
-        <h1>Resultados</h1>
+        <h1 className="subtitle-sec">Resultados</h1>
         {componentItems}
       </>
     );
   }
 
+  
   const componentItems = items.map((item2) => {
 
     return (
