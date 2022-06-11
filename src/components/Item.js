@@ -7,6 +7,8 @@ export default function Item({itemToCreate, onReturn}) {
     <div>
       {console.log(`Soy ${itemToCreate}`)}
       <h1>{itemToCreate.title}</h1>
+      <img src={itemToCreate.thumbnail} />
+      <p>{itemToCreate.price}</p>
       <Button onClick={onReturn}>
         Return
       </Button>
