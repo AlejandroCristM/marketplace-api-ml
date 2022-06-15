@@ -1,4 +1,4 @@
-import React, {useState,useContext} from 'react'
+import React, {useState,} from 'react'
 import { Input, IconButton} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search'
 import Items from './Items';
@@ -31,8 +31,6 @@ function Search (){
                         value={value}
                         onChange={handleChange}
                         sx={{ width:'40%', fontSize:'1.8rem'}}
-
-
                     />
                     <IconButton className="search-button" onClick={handleOnClick}>
                         <SearchIcon/>    

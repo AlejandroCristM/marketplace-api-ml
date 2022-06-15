@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, {useEffect, useState} from "react";
-import {Button} from "@mui/material";
+import {Button, Card, CardMedia, CardActions, CardContent, Typography} from "@mui/material";
 import Item from "./Item";
 import '../styles/Items.css';
 
@@ -19,21 +19,18 @@ export default function Items({query}) {
       })
   },[query]);
 
-  useEffect(()=>{
-    console.log(itemSelected)
-  },[item]);
-
 
   const getInfo = () =>{
     if(itemSelected){
-      console.log("hola1")
+      console.log(item);
       return(<Item itemToCreate={item} onReturn={()=>{setItemSelected(false);setItem([]);}} />);
     }
-    console.log("hola2")
     return(
       <>
-        <h1 className="subtitle-sec">Resultados</h1>
-        {componentItems}
+        <h1 class="subtitle-sec">Resultados</h1>
+        <div class="items-container">
+          {componentItems}
+        </div>
       </>
     );
   }
@@ -42,15 +39,29 @@ export default function Items({query}) {
   const componentItems = items.map((item2) => {
 
     return (
-      <div>
-        <h2>{item2.title}</h2>
-        <img src={item2.thumbnail} />
-        <p>{item2.price}</p>
-        <Button onClick={(e)=> {
-                  setItem(item2);
-                  setItemSelected(true); //bool which indicate when a item was clicked 
-                }}>Show</Button>
-        </div>
+        <Card sx={{ minWidth: 300 }}>
+          <CardMedia
+            component="img"
+            height="250"
+            width="300"
+            image={item2.thumbnail}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {item2.title}
+            </Typography>
+            <Typography variant="body" color="text.secondary">
+              {"$ "+item2.price}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button onClick={(e)=> {
+                      setItem(item2);
+                      setItemSelected(true); //bool which indicate when a item was clicked 
+                    }}>Show
+            </Button>
+          </CardActions>
+        </Card>
     );
   });
 
